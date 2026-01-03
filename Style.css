@@ -32,7 +32,7 @@ nav {
     width: 100%; 
     background: rgba(26, 26, 46, 0.95); 
     backdrop-filter: blur(10px); 
-    z-index: 1000; 
+    z-index: 2000; 
     padding: 1rem 0; 
     transition: all 0.3s ease;
 } 
@@ -251,6 +251,23 @@ nav a:hover {
     object-fit: cover; 
     transition: transform 0.4s ease; 
 } 
+
+.enhanced-image {
+    filter: contrast(1.2) brightness(1.08) saturate(1.15) sharpen(2) !important;
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    transform: translateZ(0);
+    -webkit-transform: translateZ(0);
+} 
+
+.sharp-enhance {
+    filter: contrast(1.25) brightness(1.1) saturate(1.2) unsharp-mask(1.5) !important;
+    image-rendering: high-quality;
+    image-rendering: -webkit-optimize-contrast;
+
+}
 
 .gallery-item:hover img { 
     transform: scale(1.1); 
@@ -496,6 +513,14 @@ nav a:hover {
     color: white;
 } 
 
+.project-image .hero-bg-image {
+    opacity: 0.8;  /* or 0.9, whatever you prefer */
+} 
+
+.project-image:hover { 
+    opacity: 0.4;
+} 
+
 .project-content { 
     padding: 1.5rem;
 } 
@@ -722,8 +747,8 @@ footer {
 }
 
 .story-image {
-     width: 100%;
-    height: 200px;
+    width: 100%;
+    height: 500px;
     background: linear-gradient(135deg, var(--primary), var(--secondary));
     border-radius: 10px;
     margin: 1.5rem 0;
@@ -1020,4 +1045,51 @@ canvas {
 
 .main-content {
     padding-bottom: 3rem;
+} 
+
+.leaflet-bottom.leaflet-center { 
+    left: 50%; 
+    transform: translateX(-50%); 
+    bottom: 0; 
+} 
+
+.map-nav-control { 
+    background: rgba(255, 255, 255, 0.95); 
+    padding: 10px 15px; 
+    border-radius: 5px; 
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2); 
+    display: flex; 
+    align-items: center; 
+    gap: 15px; 
+    margin-bottom: 10px;
+} 
+
+.map-nav-control .nav-btn { 
+    padding: 8px 15px; 
+    background: var(--primary); 
+    color: white; 
+    border: none; 
+    border-radius: 5px; 
+    cursor: pointer; 
+    transition: all 0.3s; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center;
+} 
+
+.map-nav-control .nav-btn:hover { 
+    background: var(--secondary); 
+    transform: scale(1.05); 
+} 
+
+.map-nav-control .raster-title { 
+    font-weight: bold; 
+    min-width: 150px; 
+    text-align: center; 
+    color: var(--primary); 
+    font-size: 14px;
+} 
+
+.map-nav-controls { 
+    display: none;
 }
